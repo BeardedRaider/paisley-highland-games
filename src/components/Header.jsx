@@ -10,7 +10,7 @@ function Header() {
       <nav className="mt-4 flex justify-center space-x-6 text-sm">
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/events" className="hover:underline">Events</Link>
-        <Link to="/apply/event-steward" className="hover:underline">Apply</Link>
+        <Link to="/apply" className="hover:underline">Apply</Link>
         <Link to="/contact" className="hover:underline">Contact</Link>
       </nav>
     </header>

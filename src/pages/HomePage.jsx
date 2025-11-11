@@ -93,29 +93,56 @@ function HomePage() {
         <h2 className="text-2xl font-semibold text-green-700 mb-4">Available Roles</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <RoleCard
-            title="Event Steward"
-            description="Help manage crowd flow and safety during the games."
-            status="Applications open"
-            link="/apply/event-steward"
-          />
-          <RoleCard
-            title="Registration Assistant"
-            description="Assist participants with signing up for events."
-            status="Applications open"
-            link="/apply/registration-assistant"
-          />
-          <RoleCard
-            title="Scorekeeper"
-            description="Record and publish competition results."
-            status="Applications open"
-            link="/apply/scorekeeper"
-          />
-          <RoleCard
-            title="Media Coordinator"
-            description="Capture photos and updates for social media and press."
-            status="Applications open"
-            link="/apply/media-coordinator"
-          />
+  title="Event Steward"
+  description="Support the smooth running of the games by guiding attendees and ensuring safety."
+  responsibilities={[
+    "Monitor crowd flow and entry points",
+    "Assist with emergency protocols",
+    "Provide directions and event info",
+    "Report incidents to security",
+  ]}
+  status="Applications open"
+  link="/apply/event-steward"
+/>
+
+<RoleCard
+  title="Registration Assistant"
+  description="Welcome participants and help them sign up for events."
+  responsibilities={[
+    "Check registration lists",
+    "Distribute wristbands and materials",
+    "Answer questions at the welcome desk",
+    "Coordinate with event leads",
+  ]}
+  status="Applications open"
+  link="/apply/registration-assistant"
+/>
+
+<RoleCard
+  title="Scorekeeper"
+  description="Record and publish competition results in real time."
+  responsibilities={[
+    "Track scores for each event",
+    "Update leaderboards",
+    "Verify results with judges",
+    "Assist with awards ceremony",
+  ]}
+  status="Applications open"
+  link="/apply/scorekeeper"
+/>
+
+<RoleCard
+  title="Media Coordinator"
+  description="Capture the energy of the games through photos and social media."
+  responsibilities={[
+    "Take photos and short videos",
+    "Post updates on social platforms",
+    "Interview participants and guests",
+    "Coordinate with press and sponsors",
+  ]}
+  status="Applications open"
+  link="/apply/media-coordinator"
+/>
         </div>
       </section>
     </Layout>
