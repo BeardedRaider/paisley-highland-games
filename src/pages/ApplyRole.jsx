@@ -66,6 +66,17 @@ function ApplyRole() {
     }
   }, [submitted, navigate]);
 
+  useEffect(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const content = document.querySelector('.fade-in');
+    if (content) {
+      content.classList.remove('fade-in');
+      void content.offsetWidth; // force reflow
+      content.classList.add('fade-in');
+    }
+  }, [role]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -84,70 +95,73 @@ function ApplyRole() {
         title={role ? `Apply for: ${formatRole(role)}` : 'Apply for a Role'}
         subtitle={role ? 'Join the team and make a difference' : 'Choose a role to begin your application'}
       />
-
-      <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
+      <div className="fade-in min-h-screen bg-gray-100 text-gray-800 p-6">
         <div className="max-w-3xl mx-auto bg-white p-6 rounded shadow">
-          {!role ? (
-            <>
-              <h2 className="text-2xl font-bold text-blue-800 mb-6 text-center">Choose a Role to Apply</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-            {Object.entries(roles).map(([key, data]) => (
-                <div
-                key={key}
-                className="bg-white border rounded-lg shadow-md p-4 hover:shadow-lg transition cursor-pointer flex flex-col"
-                onClick={() => handleSelect(key)}
-                >
-                <img src={data.image} alt={data.title} className="w-full h-40 object-cover rounded mb-4" />
-                <h3 className="text-xl font-bold text-blue-800 mb-2">{data.title}</h3>
-                <p className="text-gray-700 mb-3">{data.description}</p>
-                <ul className="list-disc pl-5 text-sm text-gray-600 mb-4">
-                    {data.responsibilities.map((item, index) => (
-                    <li key={index}>{item}</li>
-                    ))}
-                </ul>
-                <span className="text-green-700 font-semibold text-sm mb-2">Applications open</span>
-                <button className="mt-auto bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 text-sm">
-                    Apply Now
-                </button>
-                </div>
-            ))}
-            </div>
+            <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
+              <div className="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+                {!role ? (
+                  <>
+                    <h2 className="text-2xl font-bold text-blue-800 mb-6 text-center">Choose a Role to Apply</h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                  {Object.entries(roles).map(([key, data]) => (
+                      <div
+                      key={key}
+                      className="bg-white border rounded-lg shadow-md p-4 hover:shadow-lg transition cursor-pointer flex flex-col"
+                      onClick={() => handleSelect(key)}
+                      >
+                      <img src={data.image} alt={data.title} className="w-full h-40 object-cover rounded mb-4" />
+                      <h3 className="text-xl font-bold text-blue-800 mb-2">{data.title}</h3>
+                      <p className="text-gray-700 mb-3">{data.description}</p>
+                      <ul className="list-disc pl-5 text-sm text-gray-600 mb-4">
+                          {data.responsibilities.map((item, index) => (
+                          <li key={index}>{item}</li>
+                          ))}
+                      </ul>
+                      <span className="text-green-700 font-semibold text-sm mb-2">Applications open</span>
+                      <button className="mt-auto bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 text-sm">
+                          Apply Now
+                      </button>
+                      </div>
+                  ))}
+                  </div>
 
-            </>
-          ) : !submitted ? (
-            <>
-              <Link to="/apply" className="text-blue-600 hover:underline text-sm mb-4 inline-block">
-                ← Change Role
-              </Link>
-              <h1 className="text-2xl font-bold text-blue-800 mb-4">
-                Apply for: {formatRole(role)}
-              </h1>
-              <p className="mb-6 text-gray-700">{roleData?.description}</p>
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block font-semibold mb-1">Full Name</label>
-                  <input type="text" className="w-full border p-2 rounded" required />
-                </div>
-                <div>
-                  <label className="block font-semibold mb-1">Email Address</label>
-                  <input type="email" className="w-full border p-2 rounded" required />
-                </div>
-                <div>
-                  <label className="block font-semibold mb-1">Why are you interested?</label>
-                  <textarea className="w-full border p-2 rounded" rows="4" required></textarea>
-                </div>
-                <button type="submit" className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
-                  Submit Application
-                </button>
-              </form>
-            </>
-          ) : (
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-green-700 mb-4">Application Submitted!</h2>
-              <p className="text-gray-700">Thank you for applying. Redirecting you back to the homepage…</p>
+                  </>
+                ) : !submitted ? (
+                  <>
+                    <Link to="/apply" className="text-blue-600 hover:underline text-sm mb-4 inline-block">
+                      ← Change Role
+                    </Link>
+                    <h1 className="text-2xl font-bold text-blue-800 mb-4">
+                      Apply for: {formatRole(role)}
+                    </h1>
+                    <p className="mb-6 text-gray-700">{roleData?.description}</p>
+                    <form className="space-y-4" onSubmit={handleSubmit}>
+                      <div>
+                        <label className="block font-semibold mb-1">Full Name</label>
+                        <input type="text" className="w-full border p-2 rounded" required />
+                      </div>
+                      <div>
+                        <label className="block font-semibold mb-1">Email Address</label>
+                        <input type="email" className="w-full border p-2 rounded" required />
+                      </div>
+                      <div>
+                        <label className="block font-semibold mb-1">Why are you interested?</label>
+                        <textarea className="w-full border p-2 rounded" rows="4" required></textarea>
+                      </div>
+                      <button type="submit" className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+                        Submit Application
+                      </button>
+                    </form>
+                  </>
+                ) : (
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold text-green-700 mb-4">Application Submitted!</h2>
+                    <p className="text-gray-700">Thank you for applying. Redirecting you back to the homepage…</p>
+                  </div>
+                )}
+              </div>
             </div>
-          )}
-        </div>
+          </div>
       </div>
     </Layout>
   );
