@@ -3,6 +3,14 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 
+function formatRole(role) {
+  return role
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+
 function ApplyRole() {
   const { role } = useParams();
   const navigate = useNavigate();
@@ -24,7 +32,7 @@ function ApplyRole() {
     <Layout>
         <HeroBanner
   image="/images/hammer.png"
-  title={`Apply for: ${role.replace('-', ' ')}`}
+  title={`Apply for: ${formatRole(role)}`}
   subtitle="Join the team and make a difference"
 />
       <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
@@ -36,7 +44,7 @@ function ApplyRole() {
           {!submitted ? (
             <>
               <h1 className="text-2xl font-bold text-blue-800 mb-4">
-                Apply for: {role.replace('-', ' ')}
+                Apply for: {formatRole(role)}
               </h1>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>

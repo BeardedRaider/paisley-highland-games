@@ -7,6 +7,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/apply" element={<ApplyRole />} />
       <Route path="/apply/:role" element={<ApplyRole />} />
       <Route path="/events" element={<EventsPage />} />
     </Routes>
