@@ -6,6 +6,7 @@ import EventsPage from './pages/EventsPage';
 import RegisterPage from './pages/RegisterPage';
 import ResultsPage from './pages/ResultsPage';
 import ContactPage from './pages/ContactPage';
+import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </>
   );
