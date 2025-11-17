@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import ResultsPage from './pages/ResultsPage';
 import ContactPage from './pages/ContactPage';
 import AdminDashboard from './pages/AdminDashboard';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="*" element={<NotFoundPage />} /> {/* Catch-all route */}
+
       </Routes>
     </>
   );
