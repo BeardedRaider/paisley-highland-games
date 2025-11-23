@@ -1,4 +1,4 @@
-// NotFoundPage.jsx
+// NotFoundPage: simple 404 page shown when a route isn't matched.
 import React from 'react';
 import Layout from '../components/Layout';
 

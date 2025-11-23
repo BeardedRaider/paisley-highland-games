@@ -1,3 +1,4 @@
+// HomePage: landing page with hero, intro, highlights and available roles.
 import React from 'react';
 import HeroBanner from '../components/HeroBanner';
 import RoleCard from '../components/RoleCard';

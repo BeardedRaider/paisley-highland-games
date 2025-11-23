@@ -1,3 +1,4 @@
+// ResultsPage: lists winners and top performers from events, grouped by region.
 import React from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';

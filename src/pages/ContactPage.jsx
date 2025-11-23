@@ -1,3 +1,4 @@
+// ContactPage: contact form, contact info, embedded map and newsletter signup.
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';

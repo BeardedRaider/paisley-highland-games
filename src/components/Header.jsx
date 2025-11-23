@@ -1,13 +1,39 @@
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { FiMenu, FiX } from "react-icons/fi";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="bg-blue-800 text-white p-6 shadow-md">
-      <h1 className="text-4xl font-bold text-center">Paisley Highland Games</h1>
+    <header className="relative bg-blue-800 text-white p-6 shadow-md">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl md:text-4xl font-bold text-center w-full md:w-auto">
+          Paisley Highland Games
+        </h1>
+
+        {/* MOBILE BURGER BUTTON */}
+        <button
+          className="md:hidden absolute right-6 top-6"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation"
+        >
+          {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+        </button>
+      </div>
+
       <p className="mt-2 text-center text-lg">
         Discover roles, register for events, and celebrate Scottish tradition
       </p>
-      <nav className="mt-4 flex justify-center space-x-6 text-sm">
+
+      {/* NAVIGATION */}
+      <nav
+        className={`
+          mt-4 flex flex-col space-y-4 text-center text-sm 
+          md:flex md:flex-row md:justify-center md:space-x-6 md:space-y-0 
+          ${isOpen ? "block" : "hidden md:flex"}
+        `}
+      >
         <Link to="/" className="hover:underline">Home</Link>
         <Link to="/events" className="hover:underline">Events</Link>
         <Link to="/apply" className="hover:underline">Apply</Link>

@@ -1,3 +1,4 @@
+// RegisterPage: competitor registration form for events and visual highlights.
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';

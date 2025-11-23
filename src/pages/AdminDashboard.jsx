@@ -1,8 +1,11 @@
+// AdminDashboard: simple admin interface to view/manage events, results and applications.
+// Uses local sample data and a tab UI to switch between sections.
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
 
 function AdminDashboard() {
+  // activeTab controls which section is shown: 'events' | 'results' | 'applications'
   const [activeTab, setActiveTab] = useState('events');
 
     const events = [
@@ -34,6 +37,7 @@ function AdminDashboard() {
     ];
 
 
+  // Render the currently selected tab's content
   const renderTab = () => {
     switch (activeTab) {
       case 'events':

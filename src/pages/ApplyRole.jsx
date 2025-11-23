@@ -1,3 +1,5 @@
+// ApplyRole: role selection and application form.
+// Shows a list of roles, lets the user pick one, and submit a simple form.
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
@@ -47,6 +49,7 @@ const roles = {
 };
 
 
+// formatRole: convert route-style keys like 'event-steward' into human text
 function formatRole(role) {
   return role
     .split('-')
@@ -54,6 +57,7 @@ function formatRole(role) {
     .join(' ');
 }
 
+// Main component for the apply page
 function ApplyRole() {
   const { role } = useParams();
   const navigate = useNavigate();

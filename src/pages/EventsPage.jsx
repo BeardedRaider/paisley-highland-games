@@ -1,3 +1,4 @@
+// EventsPage: shows an events calendar and a region map to help users find games.
 import React from 'react';
 import Layout from '../components/Layout';
 import HeroBanner from '../components/HeroBanner';
